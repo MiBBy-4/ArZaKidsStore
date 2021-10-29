@@ -19,27 +19,27 @@ class CartController extends CartBaseController
             $products = Cart::where("user_id", $userId)->first()->products;
             $sum = Cart::where("user_id", $userId)->first()->products->sum('price');
         }
-       
+
         return view('main.cart.index', compact('products', 'sum'));
-        
+
     }
 
 
     public function store(Request $request)
     {
         $id = $request['product_id'];
-        
+
         $this->service->store($id);
 
-        return back();
+        return back()->with('cartSuccess', 'товар добавлен в корзину');
     }
 
     public function destroy(Request $request)
     {
         $productId = $request['product_id'];
-        
+
         $this->service->destroy($productId);
-        
-        return back();
+
+        return back()->with('cartDestroy', 'товар удален из корзины');
     }
 }

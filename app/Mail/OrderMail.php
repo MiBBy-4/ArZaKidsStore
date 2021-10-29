@@ -2,10 +2,12 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class OrderMail extends Mailable
 {
@@ -18,11 +20,11 @@ class OrderMail extends Mailable
      */
     protected $data;
 
-    protected $order;
 
     public function __construct($data)
     {
         $this->data = $data;
+
     }
 
     /**

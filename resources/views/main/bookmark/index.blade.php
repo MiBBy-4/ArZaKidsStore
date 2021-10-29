@@ -3,9 +3,10 @@
     Закладки
 @endsection
 @section('css')
-    
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @endsection
 @section('content')
+@include('include.main.sweet')
 @if ($products)
 <section class="h-100 h-custom">
   <div class="container py-5 h-100">
@@ -46,17 +47,20 @@
                         <div style="width: 80px;">
                           <h5 class="mb-0">{{$product->price}}</h5>
                         </div>
-                        <form action="{{route('bookmark.destroy')}}" method="post">
+                        <form action="{{route('bookmark.destroy')}}" method="post" class="mr-2">
                             @method('delete')
                             @csrf
                             <button  type="submit" value="{{$product->id}}" name="product_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </form>
-                        
+                        <form action="{{route('cart.store')}}" method="post">
+                            @csrf
+                            <button  type="submit" value="{{$product->id}}" name="product_id" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i></button>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
-                @endforeach  
+                @endforeach
               </div>
 
             </div>
@@ -102,5 +106,5 @@
 
 @endsection
 @section('js')
-    
+
 @endsection

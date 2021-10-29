@@ -3,9 +3,10 @@
     Корзина
 @endsection
 @section('css')
-    
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @endsection
 @section('content')
+@include('include.main.sweet')
 @if ($products)
 <section class="h-100 h-custom">
   <div class="container py-5 h-100">
@@ -51,12 +52,12 @@
                             @csrf
                             <button  type="submit" value="{{$product->id}}" name="product_id" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </form>
-                        
+
                       </div>
                     </div>
                   </div>
                 </div>
-                @endforeach  
+                @endforeach
               </div>
               <div class="col-lg-5">
 
@@ -64,7 +65,7 @@
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                       <h5 class="mb-0">Оставить заявку на покупку</h5>
-                      
+
                     </div>
 
 
@@ -110,25 +111,25 @@
                         </div>
                       </div>
 
-                    
-  
+
+
                       <hr class="my-4">
-  
+
                       <div class="d-flex justify-content-between">
                         <p class="mb-2">Сумма товаров</p>
                         <p class="mb-2">{{$sum}}</p>
                       </div>
-  
+
                       <div class="d-flex justify-content-between">
                         <p class="mb-2">Доставка</p>
                         <p class="mb-2">{{$sum * 0.05}}</p>
                       </div>
-  
+
                       <div class="d-flex justify-content-between mb-4">
                         <p class="mb-2">Общая стоимость</p>
                         <p class="mb-2">{{$sum+$sum*0.05}}</p>
                       </div>
-  
+
                       <button type="submit" class="btn btn-info btn-block btn-lg" @if($sum<=0) disabled @endif>
                         <div class="d-flex justify-content-between">
                           <span>{{$sum+$sum*0.05}}</span>
@@ -177,7 +178,7 @@
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                       <h5 class="mb-0">Оставить заявку на покупку</h5>
-                      
+
                     </div>
 
 
@@ -223,25 +224,25 @@
                         </div>
                       </div>
 
-                    
-  
+
+
                       <hr class="my-4">
-  
+
                       <div class="d-flex justify-content-between">
                         <p class="mb-2">Сумма товаров</p>
                         <p class="mb-2">0</p>
                       </div>
-  
+
                       <div class="d-flex justify-content-between">
                         <p class="mb-2">Доставка</p>
                         <p class="mb-2">0</p>
                       </div>
-  
+
                       <div class="d-flex justify-content-between mb-4">
                         <p class="mb-2">Общая стоимость</p>
                         <p class="mb-2">0</p>
                       </div>
-  
+
                       <button type="submit" class="btn btn-info btn-block btn-lg" disabled>
                         <div class="d-flex justify-content-between">
                           <span>0</span>
@@ -264,8 +265,8 @@
 </section>
 @endif
 
-    
+
 @endsection
 @section('js')
-    
+
 @endsection

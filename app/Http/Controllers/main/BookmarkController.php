@@ -21,7 +21,7 @@ class BookmarkController extends BookmarkBaseController
             $products = Bookmark::where('user_id', $userId)->first()->products;
         }
 
-        
+
 
         return view('main.bookmark.index', compact('products'));
     }
@@ -29,10 +29,10 @@ class BookmarkController extends BookmarkBaseController
     public function store(Request $request)
     {
         $id = $request['product_id'];
-        
+
         $this->service->store($id);
 
-        return back();
+        return back()->with('bookmarkSuccess', 'товар добавлен в закладки');
     }
 
     public function destroy(Request $request)
@@ -41,6 +41,6 @@ class BookmarkController extends BookmarkBaseController
 
         $this->service->destroy($productId);
 
-        return back();
+        return back()->with('bookmarkDestroy', 'товар больше не в закладках');
     }
 }

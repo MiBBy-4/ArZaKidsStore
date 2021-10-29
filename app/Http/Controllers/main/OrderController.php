@@ -13,15 +13,14 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends OrderBaseController
 {
-   
+
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-
         $this->service->store($data);
-        
+
         Mail::to($data['email'])->send(new OrderMail($data));
 
-        return redirect()->route('main.index');
+        return redirect()->route('main.index')->with('orderSuccess', 'покупка совершена успешно');
     }
 }

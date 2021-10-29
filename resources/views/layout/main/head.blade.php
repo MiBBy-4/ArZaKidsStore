@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset("css/style.css")}}">
     @yield("css")
 </head>
-<body class="bg-gradient" style="background: rgb(133, 133, 99)">
+<body class="bg-gradient" style="background: rgb(97, 97, 68)">
     <div></div>
     @include("include.main.navbar")
     @yield('content')
