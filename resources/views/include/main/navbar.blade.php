@@ -17,6 +17,9 @@
                       </a>
 
                       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @can('view', Auth::user())
+                        <a href="{{route('admin.orders.index')}}" class="btn"><i class="fas fa-user-lock"></i> Админ панель</a>
+                        @endcan
                         <a href="{{ route('cart.index') }}" class="btn"><i class="fas fa-shopping-cart"></i> Корзина</a>
                         <a href="{{ route('bookmark.index') }}" class="btn"><i class="far fa-bookmark"></i></i> Избранное</a>
                         <a href="{{ route('order.index') }}" class="btn"><i class="fas fa-receipt"></i> Заказы</a>
