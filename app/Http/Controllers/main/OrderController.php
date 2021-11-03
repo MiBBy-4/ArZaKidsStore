@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends OrderBaseController
 {
+    public function index()
+    {
+        $userOrders = Order::where("user_id", Auth::id())->get();
+        
+        $ordersProductsCount = 0;
+
+        foreach($userOrders as $order){
+            foreach($order->products as $product){
+                $ordersProductsCount++;
+            }
+        }
+
+        return view('main.order.index', compact('userOrders', 'ordersProductsCount'));
+    }
+
 
     public function store(StoreRequest $request)
     {

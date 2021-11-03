@@ -23,10 +23,11 @@
                   <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
                       <p class="mb-1">Ваши заказы</p>
-                      <p class="mb-0">{{$products->count()}} заказанных(-ый) продукт(-а,-ов)</p>
+                      <p class="mb-0">{{$ordersProductsCount}} заказанных(-ый) продукт(-а,-ов)</p>
                     </div>
                   </div>
-                  @foreach ($products as $product)
+                  @foreach ($userOrders as $order)
+                  @foreach ($order->products as $product)
                   <div class="card mb-3">
                     <div class="card-body">
                       <div class="d-flex justify-content-between">
@@ -45,11 +46,16 @@
                           <div style="width: 80px;">
                             <h5 class="mb-0">{{$product->price}}</h5>
                           </div>
+                          @if ($order->is_checked)
+                          <p class="ml-3 text-success">Подтверждено</p>
+                          @else
                           <p class="ml-3">Ожидает подтверждения</p>
+                          @endif
                         </div>
                       </div>
                     </div>
                   </div>
+                  @endforeach
                   @endforeach  
                 </div>
   
