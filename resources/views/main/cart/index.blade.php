@@ -6,6 +6,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @endsection
 @section('content')
+{{Breadcrumbs::render('userCart')}}
 @include('include.main.sweet')
 @if ($products)
 <section class="h-100 h-custom">

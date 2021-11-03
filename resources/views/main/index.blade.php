@@ -8,6 +8,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @endsection
 @section('content')
+{{Breadcrumbs::render('main')}}
 @auth
 @include("include.main.sweet")
 <div class="row">
