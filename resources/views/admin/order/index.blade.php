@@ -33,8 +33,9 @@
           <th scope="col">Цвет</th>
           <th scope="col">Состав</th>
           <th scope="col">Размер</th>
-          <th scope="col">Картинка</th>
           <th scope="col">Статус</th>
+          <th scope="col">Дата заказа</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -45,8 +46,20 @@
             <td>{{$order->email}}</td>
             <td>{{$order->adress}}</td>
             <td>{{$order->total_price}}</td>
-            <td>{{$order->is_checked}}</td>
+
+            <td>@if($order->is_checked) <p class="text-success"> Проверен </p> @else <p class="text-danger">Не проверен</p>@endif</td>
             <td>@if($order->updated_at) {{$order->updated_at}} @else {{$order->created_at}} @endif</td>
+            <td> 
+              @if (!$order->is_checked)
+              <form action="{{route('admin.orders.confirm')}}" method="post">
+                @method('delete')
+                @csrf
+                <input type="hidden" name="email" value="{{$order->email}}">
+                <input type="hidden" name="FIO" value="{{$order->FIO}}">
+                <button type="submit" value="{{$order->id}}" name="orderId" class="btn btn-success"><i class="fas fa-check"></i></button>
+              </form>
+              @endif
+            </td>
         </tr>
         <tr class="expandable-body d-none" data-widget="expandable-table" aria-expanded="false">
           <td colspan="7">
@@ -70,6 +83,7 @@
                 @endforeach
               </tbody>
             </table>
+           
           </td>
         </tr>
         @endforeach

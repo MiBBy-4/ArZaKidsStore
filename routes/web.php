@@ -43,5 +43,6 @@ Route::group(['namespace' => 'admin', 'middleware' => 'admin'], function ()
     Route::post('/admin/product/{product}/edit/update', 'ProductController@update')->name('admin.products.update');
     Route::delete('/admin/product/{productId}/destroy', 'ProductController@destroy')->name('admin.products.destroy');
     Route::get('/admin/orders', 'OrderController@index')->name('admin.orders.index');
+    Route::delete('/admin/orders/orderconfirm', 'OrderController@orderConfirm')->name('admin.orders.confirm');
 });
 
