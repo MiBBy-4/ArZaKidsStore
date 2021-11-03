@@ -28,11 +28,11 @@
   <table class="table table-bordered table-hover mt-2">
       <thead>
         <tr>
-          <th scope="col">Название</th>
-          <th scope="col">Стоимость</th>
-          <th scope="col">Цвет</th>
-          <th scope="col">Состав</th>
-          <th scope="col">Размер</th>
+          <th scope="col">ФИО</th>
+          <th scope="col">Телефон</th>
+          <th scope="col">Почта</th>
+          <th scope="col">Адрес</th>
+          <th scope="col">Общ.стоимость</th>
           <th scope="col">Статус</th>
           <th scope="col">Дата заказа</th>
           <th scope="col"></th>
